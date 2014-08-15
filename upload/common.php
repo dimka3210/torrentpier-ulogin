@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 if (isset($_REQUEST['GLOBALS'])) die();
 
 ignore_user_abort(true);
@@ -18,6 +18,13 @@ header('X-Frame-Options: SAMEORIGIN');
 
 // Get initial config
 require(BB_ROOT .'config.php');
+
+// Include core
+spl_autoload_register(function ($className) {
+	include_once('./includes/core/' . $className . '.php');
+});
+
+DataBase::i();
 
 $server_protocol = ($bb_cfg['cookie_secure']) ? 'https://' : 'http://';
 $server_port = ($bb_cfg['server_port'] != 80) ? ':'. $bb_cfg['server_port'] : '';
