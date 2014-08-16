@@ -23,7 +23,8 @@ class DataBase
         $this->connect();
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->disconnect();
     }
 
@@ -83,10 +84,27 @@ class DataBase
 
     /**
      * @param $sql string
+     * @param array $params
      * @return PDOStatement
      */
-    public function q($sql){
+    public function q($sql, $params = array())
+    {
         $stmt = $this->master->prepare($sql);
+        if ($params) {
+            foreach ($params as $key => $param) {
+                $type = PDO::PARAM_STR;
+
+                $key = (is_int($key)) ? $key + 1 : $key;
+
+                if (is_int($param)) {
+                    $type = PDO::PARAM_INT;
+                } elseif (is_bool($param)) {
+                    $type = PDO::PARAM_BOOL;
+                }
+
+                $stmt->bindParam($key, $param, $type);
+            }
+        }
         $stmt->execute();
         return $stmt;
     }
@@ -98,6 +116,7 @@ class DataBase
     {
         return $this->master->errorInfo();
     }
+
     /**
      * @return mixed
      */
