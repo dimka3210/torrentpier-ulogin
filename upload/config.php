@@ -76,11 +76,12 @@ $bb_cfg['tp_release_state'] = 'R595';
 $charset  = 'utf8';
 $pconnect = false;
 
-// Настройка баз данных ['db']['srv_name'] => (array) srv_cfg;
 // порядок параметров srv_cfg (хост, название базы, пользователь, пароль, charset, pconnect);
-$bb_cfg['db']['db1'] = array('localhost', 'dbase', 'user', 'pass', $charset, $pconnect);
-//$bb_cfg['db']['db2'] = array('localhost2', 'dbase2', 'user2', 'pass2', $charset, $pconnect);
-//$bb_cfg['db']['db3'] = array('localhost3', 'dbase3', 'user2', 'pass3', $charset, $pconnect);
+$bb_cfg['db'] = array(
+    'db1'       =>  array('localhost', 'dbase', 'user', 'pass', $charset, $pconnect),
+    'master'    =>  array('localhost', 'dbase', 'user', 'pass', $charset, $pconnect, 'dbms'=>'mysql'),
+    'slave'     =>  array(),
+);
 
 $bb_cfg['db_alias'] = array(
 //	'alias'  => 'srv_name'
@@ -413,7 +414,7 @@ $log_ip_resp = array(
 
 // Error reporting
 ini_set('error_reporting', E_ALL);
-ini_set('display_errors',  0);
+ini_set('display_errors',  1);
 ini_set('log_errors',      1);
 ini_set('error_log',       LOG_DIR .'php_err.log');
 

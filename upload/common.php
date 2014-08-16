@@ -24,8 +24,6 @@ spl_autoload_register(function ($className) {
 	include_once('./includes/core/' . $className . '.php');
 });
 
-DataBase::i();
-
 $server_protocol = ($bb_cfg['cookie_secure']) ? 'https://' : 'http://';
 $server_port = ($bb_cfg['server_port'] != 80) ? ':'. $bb_cfg['server_port'] : '';
 define('FORUM_PATH', $bb_cfg['script_path']);
