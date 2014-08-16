@@ -5,7 +5,7 @@
  * Date: 15.08.2014
  * Time: 16:24
  */
-class DataBase
+class DB
 {
     private static $instance = null;
     private $masterParams = array();
@@ -30,7 +30,7 @@ class DataBase
 
     /**
      * @param bool $newInstance
-     * @return DataBase
+     * @return DB
      */
     public static function i($newInstance = false)
     {

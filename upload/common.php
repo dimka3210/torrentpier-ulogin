@@ -21,7 +21,7 @@ require(BB_ROOT .'config.php');
 
 // Include core
 spl_autoload_register(function ($className) {
-	include_once('./includes/core/' . $className . '.php');
+	include_once(realpath(BB_ROOT . '/includes/core/' . $className . '.php'));
 });
 
 $server_protocol = ($bb_cfg['cookie_secure']) ? 'https://' : 'http://';

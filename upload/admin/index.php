@@ -121,6 +121,8 @@ elseif (isset($_GET['pane']) && $_GET['pane'] == 'right')
 			$dblist = array();
 			foreach ($bb_cfg['db'] as $name => $row)
 			{
+                if (!$row) continue;
+
 				$sql = "SHOW TABLE STATUS FROM {$row[1]}";
 				if ($result = DB()->sql_query($sql))
 				{
