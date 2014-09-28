@@ -243,6 +243,11 @@ if ($release_groups = get_group_data('all'))
 		$s_release_group_select[$opt['lang']] = $val;
 	}
 }
+else
+{
+	$s_rg_opt = '';
+	$s_release_group_select = array($lang['CHOOSE_RELEASE_GROUP'] => 0);
+}
 
 $GPC = array(
 #	var_name                 key_name    def_value    GPC type
@@ -461,9 +466,16 @@ if (!$set_default)
 	{
 		if ($tmp = mb_substr(trim($tm), 0, $title_match_max_len))
 		{
-			// Autocorrect wrong keyboard layout
-			$tlc             = new Text_LangCorrect();
-			$title_match_val = $tlc->parse($tlc->parse($tmp, 1), 2);
+			if ($bb_cfg['autocorrect_wkl'])
+			{
+				// Autocorrect wrong keyboard layout
+				$tlc = new Text_LangCorrect();
+				$title_match_val = $tlc->parse($tlc->parse($tmp, 1), 2);
+			}
+			else
+			{
+				$title_match_val = $tmp;
+			}
 			$title_match_sql = clean_text_match($title_match_val, true, false, false);
 		}
 	}
@@ -966,9 +978,9 @@ $template->assign_vars(array(
 	'SHOW_FORUM'        => $show_forum_val,
 	'SHOW_AUTHOR'       => $show_author_val,
 	'SHOW_SPEED'        => $show_speed_val,
-    'MAX_FS'            => $max_forums_selected,
-    'L_MAX_FS'          => sprintf($lang['SEL_CHAPTERS_HELP'], $max_forums_selected),
-    'TRACKER_URL'       => make_url('tracker.php?'),
+	'MAX_FS'            => $max_forums_selected,
+	'L_MAX_FS'          => sprintf($lang['SEL_CHAPTERS_HELP'], $max_forums_selected),
+	'TRACKER_URL'       => make_url('tracker.php?'),
 
 	'TR_CAT_URL'        => "$tracker_url?$cat_key=",
 	'TR_FORUM_URL'      => "$tracker_url?$forum_key=",

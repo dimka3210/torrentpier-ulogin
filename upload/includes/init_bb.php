@@ -3,7 +3,7 @@
 if (!defined('BB_ROOT')) die(basename(__FILE__));
 if (PHP_VERSION < '5.3') die('TorrentPier II requires PHP version 5.3+. Your PHP version '. PHP_VERSION);
 if (!defined('BB_SCRIPT')) define('BB_SCRIPT', 'undefined');
-if (!defined('BB_CFG_LOADED')) trigger_error('bb_cfg not loaded', E_USER_ERROR);
+if (!defined('BB_CFG_LOADED')) trigger_error('File config.php not loaded', E_USER_ERROR);
 
 // Define some basic configuration arrays
 unset($stopwords, $synonyms_match, $synonyms_replace);
@@ -168,26 +168,6 @@ define('QUOTA_PM_LIMIT',     2);
 define('TOR_STATUS_NORMAL', 0);
 define('TOR_STATUS_FROZEN', 1);
 
-// Report
-// Report status constants
-define('REPORT_NEW', 0);
-define('REPORT_OPEN', 1);
-define('REPORT_IN_PROCESS', 2);
-define('REPORT_CLEARED', 3);
-define('REPORT_DELETE', 4);
-// Report authorisation constants
-define('REPORT_AUTH_USER', 0);
-define('REPORT_AUTH_MOD', 1);
-define('REPORT_AUTH_CONFIRM', 2);
-define('REPORT_AUTH_ADMIN', 3);
-// Report notification constants
-define('REPORT_NOTIFY_NEW', 1);
-define('REPORT_NOTIFY_CHANGE', 2);
-// Other report constants
-define('POST_REPORT_URL', 'r');
-define('POST_REPORT_REASON_URL', 'r');
-// Report [END]
-
 // Gender
 define('MALE',          1);
 define('FEMALE',        2);
@@ -215,18 +195,18 @@ define('TOR_TMP',           10);  // временная
 define('TOR_PREMOD',        11);  // премодерация
 
 $bb_cfg['tor_icons'] = array(
-    TOR_NOT_APPROVED  => '<span class="tor-icon tor-not-approved">*</span>',
-    TOR_CLOSED        => '<span class="tor-icon tor-closed">x</span>',
-    TOR_APPROVED      => '<span class="tor-icon tor-approved">&radic;</span>',
-    TOR_NEED_EDIT     => '<span class="tor-icon tor-need-edit">?</span>',
-    TOR_NO_DESC       => '<span class="tor-icon tor-no-desc">!</span>',
-    TOR_DUP           => '<span class="tor-icon tor-dup">D</span>',
-    TOR_CLOSED_CPHOLD => '<span class="tor-icon tor-closed-cp">&copy;</span>',
-    TOR_CONSUMED      => '<span class="tor-icon tor-consumed">&sum;</span>',
-    TOR_DOUBTFUL      => '<span class="tor-icon tor-approved">#</span>',
-    TOR_CHECKING      => '<span class="tor-icon tor-checking">%</span>',
-    TOR_TMP           => '<span class="tor-icon tor-dup">T</span>',
-    TOR_PREMOD        => '<span class="tor-icon tor-dup">&#8719;</span>',
+	TOR_NOT_APPROVED  => '<span class="tor-icon tor-not-approved">*</span>',
+	TOR_CLOSED        => '<span class="tor-icon tor-closed">x</span>',
+	TOR_APPROVED      => '<span class="tor-icon tor-approved">&radic;</span>',
+	TOR_NEED_EDIT     => '<span class="tor-icon tor-need-edit">?</span>',
+	TOR_NO_DESC       => '<span class="tor-icon tor-no-desc">!</span>',
+	TOR_DUP           => '<span class="tor-icon tor-dup">D</span>',
+	TOR_CLOSED_CPHOLD => '<span class="tor-icon tor-closed-cp">&copy;</span>',
+	TOR_CONSUMED      => '<span class="tor-icon tor-consumed">&sum;</span>',
+	TOR_DOUBTFUL      => '<span class="tor-icon tor-approved">#</span>',
+	TOR_CHECKING      => '<span class="tor-icon tor-checking">%</span>',
+	TOR_TMP           => '<span class="tor-icon tor-dup">T</span>',
+	TOR_PREMOD        => '<span class="tor-icon tor-dup">&#8719;</span>',
 );
 
 // Запрет на скачивание
@@ -306,10 +286,6 @@ define('BB_PRIVMSGS_TEXT',        'bb_privmsgs_text');
 define('BB_QUOTA_LIMITS',         'bb_quota_limits');
 define('BB_QUOTA',                'bb_attach_quota');
 define('BB_RANKS',                'bb_ranks');
-define('BB_REPORTS',              'bb_reports');         // Report
-define('BB_REPORTS_CHANGES',      'bb_reports_changes'); // Report Change's
-define('BB_REPORTS_MODULES',      'bb_reports_modules'); // Report Module Table
-define('BB_REPORTS_REASONS',      'bb_reports_reasons'); // Report Reasons
 define('BB_SEARCH_REBUILD',       'bb_search_rebuild');
 define('BB_SEARCH',               'bb_search_results');
 define('BB_SESSIONS',             'bb_sessions');
@@ -468,10 +444,8 @@ $html = new html_common();
 $log_action = new log_action();
 $ads = new ads_common();
 
-// !!! Temporarily (??) 'cat_forums' always enqueued
-$datastore->enqueue(array(
-	'cat_forums',
-));
+// TODO temporarily 'cat_forums' always enqueued
+$datastore->enqueue(array('cat_forums'));
 
 // Дата старта вашего проекта
 if (!$bb_cfg['board_startdate'])
@@ -488,13 +462,13 @@ if ((empty($_POST) && !defined('IN_ADMIN') && !defined('IN_AJAX') && !file_exist
 		// Update cron_last_check
 		bb_update_config(array('cron_last_check' => (TIMENOW + 10)));
 
-		define('CRON_LOG_ENABLED', true);   // global ON/OFF
-		define('CRON_FORCE_LOG',   false);  // always log regardless of job settings
+		define('CRON_LOG_ENABLED', true);  // global ON/OFF
+		define('CRON_FORCE_LOG',   false); // always log regardless of job settings
 
 		define('CRON_DIR',      INC_DIR  .'cron/');
 		define('CRON_JOB_DIR',  CRON_DIR .'jobs/');
-		define('CRON_LOG_DIR',  'cron/');            // inside LOG_DIR
-		define('CRON_LOG_FILE', 'cron');             // without ext
+		define('CRON_LOG_DIR',  'cron/'); // inside LOG_DIR
+		define('CRON_LOG_FILE', 'cron');  // without ext
 
 		bb_log(date('H:i:s - ') . getmypid() .' -x-- DB-LOCK try'. LOG_LF, CRON_LOG_DIR .'cron_check');
 

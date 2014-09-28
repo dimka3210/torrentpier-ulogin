@@ -6,7 +6,7 @@ require(BB_ROOT . 'common.php');
 
 $user->session_start();
 
-if (!IS_ADMIN) die('Unauthorized');
+if (!IS_ADMIN) bb_die($lang['NOT_AUTHORISED']);
 
 $queries = array(
     'неактивные пользователи в течение 30 дней' => 'SELECT count(*) FROM `' . BB_USERS . '` WHERE `user_lastvisit` < UNIX_TIMESTAMP()-2592000',

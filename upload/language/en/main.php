@@ -235,8 +235,8 @@ $lang['VIEW_TOPIC'] = 'View topic';
 
 $lang['GUEST'] = 'Guest';
 $lang['POST_SUBJECT'] = 'Post subject';
-$lang['SUBMIT_VOTE'] = 'Submit Vote';
-$lang['VIEW_RESULTS'] = 'View Results';
+$lang['SUBMIT_VOTE'] = 'Submit vote';
+$lang['VIEW_RESULTS'] = 'View results';
 
 $lang['NO_NEWER_TOPICS'] = 'There are no newer topics in this forum';
 $lang['NO_OLDER_TOPICS'] = 'There are no older topics in this forum';
@@ -326,29 +326,29 @@ $lang['POST_DOWNLOAD'] = 'Download';
 $lang['CONFIRM_DELETE'] = 'Are you sure you want to delete this post?';
 $lang['CONFIRM_DELETE_POLL'] = 'Are you sure you want to delete this poll?';
 
-$lang['FLOOD_ERROR'] = 'You cannot make another post so soon after your last; please try again in a short while.';
-$lang['EMPTY_SUBJECT'] = 'You must specify a subject.';
-$lang['EMPTY_MESSAGE'] = 'You must enter a message.';
-$lang['FORUM_LOCKED'] = 'This forum is locked: you cannot post, reply to, or edit topics.';
-$lang['TOPIC_LOCKED'] = 'This topic is locked: you cannot edit posts or make replies.';
+$lang['FLOOD_ERROR'] = 'You cannot make another post so soon after your last; please try again in a short while';
+$lang['EMPTY_SUBJECT'] = 'You must specify a subject';
+$lang['EMPTY_MESSAGE'] = 'You must enter a message';
+$lang['FORUM_LOCKED'] = 'This forum is locked: you cannot post, reply to, or edit topics';
+$lang['TOPIC_LOCKED'] = 'This topic is locked: you cannot edit posts or make replies';
 $lang['TOPIC_LOCKED_SHORT'] = 'Topic locked';
 $lang['NO_POST_ID'] = 'You must select a post to edit';
 $lang['NO_TOPIC_ID'] = 'You must select a topic to reply to';
-$lang['NO_VALID_MODE'] = 'You can only post, reply, edit, or quote messages. Please return and try again.';
-$lang['NO_SUCH_POST'] = 'There is no such post. Please return and try again.';
-$lang['EDIT_OWN_POSTS'] = 'Sorry, but you can only edit your own posts.';
-$lang['DELETE_OWN_POSTS'] = 'Sorry, but you can only delete your own posts.';
-$lang['CANNOT_DELETE_REPLIED'] = 'Sorry, but you may not delete posts that have been replied to.';
-$lang['CANNOT_DELETE_POLL'] = 'Sorry, but you cannot delete an active poll.';
-$lang['EMPTY_POLL_TITLE'] = 'You must enter a title for your poll.';
-$lang['TO_FEW_POLL_OPTIONS'] = 'You must enter at least two poll options.';
-$lang['TO_MANY_POLL_OPTIONS'] = 'You have tried to enter too many poll options.';
-$lang['POST_HAS_NO_POLL'] = 'This post has no poll.';
-$lang['ALREADY_VOTED'] = 'You have already voted in this poll.';
-$lang['NO_VOTE_OPTION'] = 'You must specify an option when voting.';
+$lang['NO_VALID_MODE'] = 'You can only post, reply, edit, or quote messages. Please return and try again';
+$lang['NO_SUCH_POST'] = 'There is no such post. Please return and try again';
+$lang['EDIT_OWN_POSTS'] = 'Sorry, but you can only edit your own posts';
+$lang['DELETE_OWN_POSTS'] = 'Sorry, but you can only delete your own posts';
+$lang['CANNOT_DELETE_REPLIED'] = 'Sorry, but you may not delete posts that have been replied to';
+$lang['CANNOT_DELETE_POLL'] = 'Sorry, but you cannot delete an active poll';
+$lang['EMPTY_POLL_TITLE'] = 'You must enter a title for your poll';
+$lang['TO_FEW_POLL_OPTIONS'] = 'You must enter at least two poll options';
+$lang['TO_MANY_POLL_OPTIONS'] = 'You have tried to enter too many poll options';
+$lang['POST_HAS_NO_POLL'] = 'This post has no poll';
+$lang['ALREADY_VOTED'] = 'You have already voted in this poll';
+$lang['NO_VOTE_OPTION'] = 'You must specify an option when voting';
 $lang['LOCKED_WARN'] = 'You posted into locked topic!';
 
-$lang['ADD_POLL'] = 'Add a Poll';
+$lang['ADD_POLL'] = 'Add a poll';
 $lang['ADD_POLL_EXPLAIN'] = 'If you do not want to add a poll to your topic, leave the fields blank.';
 $lang['POLL_QUESTION'] = 'Poll question';
 $lang['POLL_OPTION'] = 'Poll option';
@@ -357,7 +357,7 @@ $lang['UPDATE'] = 'Update';
 $lang['POLL_FOR'] = 'Run poll for';
 $lang['DAYS'] = 'Days';
 $lang['POLL_FOR_EXPLAIN'] = '[ Enter 0 or leave blank for a never-ending poll ]';
-$lang['DELETE_POLL'] = 'Delete Poll';
+$lang['DELETE_POLL'] = 'Delete poll';
 
 $lang['MAX_SMILIES_PER_POST'] = 'Emoticons limit of %s emoticons exceeded.';
 
@@ -581,20 +581,22 @@ $lang['PASSWORD_CONFIRM_IF_CHANGED'] = 'You only need to confirm your password i
 
 $lang['AUTOLOGIN'] = 'Autologin';
 $lang['RESET_AUTOLOGIN'] = 'Reset autologin key';
-$lang['RESET_AUTOLOGIN_EXPL'] = '';
+$lang['RESET_AUTOLOGIN_EXPL'] = 'including all the places you\'ve visited the forum enabled auto-login';
 
 $lang['AVATAR'] = 'Avatar';
 $lang['AVATAR_EXPLAIN'] = 'Displays a small graphic image below your details in posts. Only one image can be displayed at a time, its width can be no greater than %d pixels, the height no greater than %d pixels, and the file size no more than %d KB.';
-$lang['UPLOAD_AVATAR_FILE'] = 'Upload Avatar';
+$lang['AVATAR_DELETE'] = 'Delete avatar';
+$lang['AVATAR_DISABLE'] = 'Avatar control option disabled for violation <a href="%s"><b>forum rules</b></a>';
+$lang['UPLOAD_AVATAR_FILE'] = 'Upload avatar';
 
 $lang['SELECT_AVATAR'] = 'Select avatar';
 $lang['RETURN_PROFILE'] = 'Return to profile';
 $lang['SELECT_CATEGORY'] = 'Select category';
 
-$lang['DELETE_IMAGE'] = 'Delete Image';
-$lang['CURRENT_IMAGE'] = 'Current Image';
+$lang['DELETE_IMAGE'] = 'Delete image';
+$lang['CURRENT_IMAGE'] = 'Current image';
 
-$lang['NOTIFY_ON_PRIVMSG'] = 'Notify on new Private Message';
+$lang['NOTIFY_ON_PRIVMSG'] = 'Notify on new private message';
 $lang['HIDE_USER'] = 'Hide your online status';
 $lang['HIDDEN_USER'] = 'Hidden user';
 
@@ -617,10 +619,6 @@ $lang['EMAIL_TOO_LONG'] = 'Your email is too long.';
 $lang['SIGNATURE_TOO_LONG'] = 'Your signature is too long.';
 $lang['SIGNATURE_ERROR_HTML'] = 'The signature can contain only BBCode';
 $lang['FIELDS_EMPTY'] = 'You must fill in the required fields.';
-$lang['AVATAR_FILETYPE'] = 'The avatar filetype must be .jpg, .gif or .png';
-$lang['AVATAR_FILESIZE'] = 'The avatar image file size must be less than %d KB'; // The avatar image file size must be less than 6 KB
-$lang['AVATAR_IMAGESIZE'] = 'The avatar must be less than %d pixels wide and %d pixels high';
-$lang['AVATAR_DISABLE'] = 'Forbidden to show avatar';
 
 $lang['WELCOME_SUBJECT'] = 'Welcome to %s Forums'; // Welcome to my.com forums
 $lang['NEW_ACCOUNT_SUBJECT'] = 'New user account';
@@ -659,6 +657,7 @@ $lang['USER_AGREEMENT_AGREE'] = 'I have read and agree to the User agreement abo
 
 $lang['COPYRIGHT_HOLDERS'] = 'For copyright holders';
 $lang['ADVERT'] = 'Advertise on this site';
+$lang['NOT_FOUND'] = 'File not found';
 
 // Visual confirmation system strings
 $lang['CONFIRM_CODE_WRONG'] = 'The confirmation code you entered was incorrect';
@@ -1034,13 +1033,6 @@ $lang['DIRECTORY_DOES_NOT_EXIST'] = 'The Directory \'%s\' does not exist or Coul
 $lang['DIRECTORY_IS_NOT_A_DIR'] = 'Please check if \'%s\' is a directory.'; // replace %s with directory
 $lang['DIRECTORY_NOT_WRITEABLE'] = 'Directory \'%s\' is not writeable. You\'ll have to create the upload path and chmod it to 777 (or change the owner to you httpd-servers owner) to upload files.<br />If you have only plain FTP-access change the \'Attribute\' of the directory to rwxrwxrwx.'; // replace %s with directory
 
-// Attach Rules Window
-$lang['RULES_PAGE'] = 'Attachment Rules';
-$lang['ATTACH_RULES_TITLE'] = 'Allowed Extension Groups and their Sizes';
-$lang['GROUP_RULE_HEADER'] = '%s -> Maximum Upload Size: %s'; // Replace first %s with Extension Group, second one with the Size STRING
-$lang['ALLOWED_EXTENSIONS_AND_SIZES'] = 'Allowed Extensions and Sizes';
-$lang['NOTE_USER_EMPTY_GROUP_PERMISSIONS'] = 'NOTE:<br />You are normally allowed to attach files within this Forum, <br />but since no Extension Group is allowed to be attached here, <br />you are unable to attach anything. If you try, <br />you will receive an Error Message.<br />';
-
 // Quota Variables
 $lang['UPLOAD_QUOTA'] = 'Upload Quota';
 $lang['PM_QUOTA'] = 'PM Quota';
@@ -1383,71 +1375,16 @@ $lang['ONLY_NEW_POSTS'] = 'only new posts';
 $lang['ONLY_NEW_TOPICS'] = 'only new topics';
 
 $lang['TORHELP_TITLE'] = 'Please help seeding these torrents!';
-
-// Reports (need to translate it!)
-$lang['REPORTS'] = 'Reports';
-$lang['REPORTS_DISABLE'] = 'Reports disabled';
-$lang['NEW_REPORT'] = ' (one open)';
-$lang['NEW_REPORTS'] = ' (%d open)';
-$lang['NO_NEW_REPORTS'] = ': no new Reports';
-$lang['REPORT_INDEX'] = 'Index';
 $lang['STATISTICS'] = 'Statistics';
 $lang['STATISTIC'] = 'Statistic';
 $lang['VALUE'] = 'Value';
-$lang['REPORT_COUNT'] = 'Current report count';
-$lang['REPORT_MODULES_COUNT'] = 'Report modules count';
-$lang['REPORT_HACK_COUNT'] = 'Overall report count';
-$lang['DELETED_REPORTS'] = 'Reports suggested for deletion';
-$lang['REPORT_TYPE'] = 'Report type';
-$lang['REPORT_BY'] = 'by';
-$lang['NO_REPORTS'] = 'No reports';
 $lang['INVERT_SELECT'] = 'Invert selection';
-$lang['REPORTED_BY'] = 'Reported by';
-$lang['REPORTED_TIME'] = 'Reported on';
 $lang['STATUS'] = 'Status';
 $lang['LAST_CHANGED_BY'] = 'Last changed by';
 $lang['CHANGES'] = 'Changes';
-$lang['REPORT_CHANGE_TEXT'] = 'Marked as "%1$s" by %2$s on %3$s.';
-$lang['REPORT_CHANGE_TEXT_COMMENT'] = 'Marked as "%1$s" by %2$s on %3$s:<br />%4$s';
-$lang['REPORT_CHANGE_DELETE_TEXT'] = 'Suggested for deletion by %1$s on %2$s.';
 $lang['ACTION'] = 'Action';
-$lang['REPORT_MARK'] = 'Mark as';
-$lang['OPEN_REPORTS'] = 'Offene Meldungen';
-$lang['NO_REPORTS_FOUND'] = 'No matching reports found.';
-$lang['NO_REPORTS_SELECTED'] = 'No reports were selected.';
-$lang['REPORT_NOT_EXISTS'] = 'The selected report doesn\'t exist.';
-$lang['REPORT_NOT_SUPPORTED'] = 'This feature isn\'t supported.';
-$lang['CLICK_RETURN_REPORT'] = '%sClick here%s to return to the report.';
-$lang['CLICK_RETURN_REPORT_LIST'] = '%sClick here%s to return to the report list.';
-
-$lang['REPORT_STATUS'] = array(
-	REPORT_NEW => 'new',
-	REPORT_OPEN => 'open',
-	REPORT_IN_PROCESS => 'in process',
-	REPORT_CLEARED => 'cleared',
-	REPORT_DELETE => 'suggested for deletion',
-);
-
 $lang['REASON'] = 'Reason';
-$lang['REPORT_SUBJECT'] = 'Subject';
-$lang['REPORT_TITLE_EMPTY'] = 'You must enter a title of the report.';
-$lang['REPORT_DESC_EMPTY'] = 'You must enter a message.';
-$lang['REPORT_INSERTED'] = 'The report was sent to the team.';
-
-$lang['CHANGE_REPORT'] = 'Change report';
-$lang['CHANGE_REPORTS'] = 'Change reports';
-$lang['CHANGE_REPORT_EXPLAIN'] = 'Are you sure you want to change the status of the selected report?';
-$lang['CHANGE_REPORTS_EXPLAIN'] = 'Are you sure you want to change the status of the selected reports?';
 $lang['COMMENT'] = 'Comment';
-$lang['REPORT_CHANGED'] = 'The status of the selected report was changed.';
-$lang['REPORTS_CHANGED'] = 'The status of the selected reports was changed.';
-
-$lang['DELETE_REPORT'] = 'Delete report';
-$lang['DELETE_REPORTS'] = 'Delete reports';
-$lang['DELETE_REPORT_EXPLAIN'] = 'Are you sure you want to delete the selected report?';
-$lang['DELETE_REPORTS_EXPLAIN'] = 'Are you sure you want to delete the selected reports?';
-$lang['REPORT_DELETED'] = 'The selected report was deleted.';
-$lang['REPORTS_DELETED'] = 'The selected reports were deleted.';
 
 // search
 $lang['SEARCH_S'] = 'search...';
@@ -1909,6 +1846,7 @@ $lang['SET_PRUNE_DATA'] = 'You have turned on auto-prune for this forum but did 
 $lang['MOVE_AND_DELETE'] = 'Move and Delete';
 
 $lang['DELETE_ALL_POSTS'] = 'Delete all posts';
+$lang['DELETE_ALL_TOPICS'] = 'Delete all topics, including announcements and sticky';
 $lang['NOWHERE_TO_MOVE'] = 'Nowhere to move to';
 
 $lang['EDIT_CATEGORY'] = 'Edit Category';
@@ -2115,73 +2053,7 @@ $lang['SF_SHOW_ON_INDEX'] = 'Show on main page';
 $lang['SF_PARENT_FORUM'] = 'Parent forum';
 $lang['SF_NO_PARENT'] = 'No parent forum';
 $lang['TEMPLATE'] = 'Template';
-
-// Reports (need to translate!)
-$lang['REPORT_CONFIG_EXPLAIN'] = 'On this page you can change the general configuration of the report feature.';
-$lang['REPORT_SUBJECT_AUTH'] = 'Individual permissions';
-$lang['REPORT_SUBJECT_AUTH_EXPLAIN'] = 'If this setting is enabled, moderators can only view reports they can edit. For example a post report will be hidden if the user isn\'t a moderator of the forum the post belongs to.';
-$lang['REPORT_MODULES_CACHE'] = 'Cache modules in a file';
-$lang['REPORT_MODULES_CACHE_EXPLAIN'] = 'Note: The cache directory must be set to <em>CHMOD 777</em> (full write permissions).';
-$lang['REPORT_NOTIFY'] = 'Email notification';
-$lang['REPORT_NOTIFY_CHANGE'] = 'on status changes and new reports';
-$lang['REPORT_NOTIFY_NEW'] = 'on new reports';
-$lang['REPORT_LIST_ADMIN'] = 'Admin-only report list';
-$lang['REPORT_NEW_WINDOW'] = 'Open subjects in a new window';
-$lang['REPORT_NEW_WINDOW_EXPLAIN'] = 'This setting also affects direct links to the reports at the view topic page.';
-$lang['REPORT_CONFIG_UPDATED'] = 'The configuration has been updated.';
-$lang['CLICK_RETURN_REPORT_CONFIG'] = 'Click %sHere%s to return to the configuration.';
-
-$lang['MODULES_REASONS'] = 'Modules and Reasons';
-$lang['REPORT_ADMIN_EXPLAIN'] = 'On this page you can install new report modules and edit or uninstall currently installed modules. In addition you can set up predefined reasons for every report module.';
-$lang['REPORT_MODULE'] = 'Report module';
-$lang['INSTALLED_MODULES'] = 'Installed modules';
-$lang['NO_MODULES_INSTALLED'] = 'No modules installed';
-$lang['REASONS'] = 'Reasons (%d)';
 $lang['SYNC'] = 'Sync';
-$lang['UNINSTALL'] = 'Uninstall';
-$lang['INSTALL2'] = 'Install';
-$lang['INACTIVE_MODULES'] = 'Inactive modules';
-$lang['NO_MODULES_INACTIVE'] = 'No inactive modules';
-$lang['REPORT_MODULE_NOT_EXISTS'] = 'The selected module doesn\'t exist.';
-$lang['CLICK_RETURN_REPORT_ADMIN'] = 'Click %sHere%s to return to the Modules &amp; Reasons administration.';
-
-$lang['BACK_MODULES'] = 'Back to the modules';
-$lang['REPORT_REASON'] = 'Report reason';
-$lang['NO_REASONS'] = 'No reasons for this module';
-$lang['ADD_REASON'] = 'Add reason';
-$lang['EDIT_REASON'] = 'Edit reason';
-$lang['REASON_DESC_EXPLAIN'] = 'If the description matches with a language variable, the variable will be used instead.';
-$lang['REASON_DESC_EMPTY'] = 'You must enter a report reason.';
-$lang['REPORT_REASON_ADDED'] = 'The report reason has been added.';
-$lang['REPORT_REASON_EDITED'] = 'The report reason has been edited.';
-$lang['DELETE_REASON'] = 'Delete reason';
-$lang['DELETE_REPORT_REASON_EXPLAIN'] = 'Are you sure you want to delete the selected report reason?';
-$lang['REPORT_REASON_DELETED'] = 'The report reason has been deleted.';
-$lang['REPORT_REASON_NOT_EXISTS'] = 'The selected report reason doesn\'t exist.';
-$lang['CLICK_RETURN_REPORT_REASONS'] = 'Click %sHere%s to return to the report reasons administration.';
-
-$lang['REPORT_MODULE_SYNCED'] = 'The module has been synced.';
-
-$lang['UNINSTALL_REPORT_MODULE'] = 'Uninstall module';
-$lang['UNINSTALL_REPORT_MODULE_EXPLAIN'] = 'Are you sure you want to uninstall the selected report module? <br />Note: All reports in the module will be deleted, too.';
-$lang['REPORT_MODULE_UNINSTALLED'] = 'The module has been uninstalled.';
-
-$lang['INSTALL_REPORT_MODULE'] = 'Install module';
-$lang['EDIT_REPORT_MODULE'] = 'Edit module';
-$lang['REPORT_PRUNE'] = 'Prune reports';
-$lang['REPORT_PRUNE_EXPLAIN'] = 'Cleared reports and reports marked for deletion will be deleted automatically after <var>x</var> days. Set to <em>zero</em> to disable the feature.';
-$lang['REPORT_PERMISSIONS'] = 'Report permissions';
-$lang['WRITE'] = 'Write';
-$lang['REPORT_AUTH'] = array(
-	REPORT_AUTH_USER => 'Users',
-	REPORT_AUTH_MOD => 'Moderators',
-	REPORT_AUTH_CONFIRM => 'Moderators (after confirmation)',
-	REPORT_AUTH_ADMIN => 'Administrators'
-);
-$lang['REPORT_AUTH_NOTIFY_EXPLAIN'] = 'Moderators will only be notified if they can view and edit the report.';
-$lang['REPORT_AUTH_DELETE_EXPLAIN'] = 'If you select <em>Moderators (after confirmation)</em>, deletions have to be confirmed by an administrator.';
-$lang['REPORT_MODULE_INSTALLED'] = 'The module has been installed.';
-$lang['REPORT_MODULE_EDITED'] = 'The module has been edited.';
 
 // Mods
 $lang['MAX_NEWS_TITLE'] = 'Max. length of the news';
@@ -2533,7 +2405,8 @@ $lang['CRON_DISABLE'] = 'Disable';
 $lang['CRON_ENABLE'] = 'Enable';
 
 $lang['RUN_MAIN_CRON'] = 'Start cron';
-$lang['ADD_JOB'] = 'Add cron';
+$lang['ADD_JOB'] = 'Add cron job';
+$lang['DELETE_JOB'] = 'Are you sure you want to delete cron job?';
 $lang['CRON_WORKS'] = 'Cron is now works or is broken -> ';
 $lang['REPAIR_CRON'] = 'Repair Cron';
 
@@ -2878,3 +2751,55 @@ $lang['ATOM_NO_USER'] = 'This user does not have a feed (no ongoing topics)';
 
 $lang['HASH_INVALID'] = 'Hash %s is invalid';
 $lang['HASH_NOT_FOUND'] = 'Release with hash %s not found';
+
+$lang['TERMS_EMPTY_TEXT'] = '[align=center]The text of this page is edited at: [url=http://%s/admin/admin_terms.php]admin/admin_terms.php[/url]. This line can see only administrators.[/align]';
+$lang['TERMS_EXPLAIN'] = 'On this page, you can specify the text of the basic rules of the resource is displayed to users.';
+
+$lang['TR_STATS'] = array(
+	0 => 'inactive users in 30 days',
+	1 => 'inactive users for 90 days',
+	2 => 'medium size distributions on the tracker (many megabytes)',
+	3 => 'how many total hands on the tracker',
+	4 => 'how many live hands (there is at least 1 led)',
+	5 => 'how many hands where that seeding more than 5 seeds',
+	6 => 'how many of us uploaders (those who filled at least 1 hand)',
+	7 => 'how many uploaders over the last 30 days',
+);
+
+$lang['NEW_POLL_START'] = 'Poll enabled';
+$lang['NEW_POLL_END'] = 'Poll completed';
+$lang['NEW_POLL_ENDED'] = 'This poll has already been completed';
+$lang['NEW_POLL_DELETE'] = 'Poll deleted';
+$lang['NEW_POLL_ADDED'] = 'Poll added';
+$lang['NEW_POLL_ALREADY'] = 'Theme already has a poll';
+$lang['NEW_POLL_RESULTS'] = 'Poll changed and the old results deleted';
+$lang['NEW_POLL_VOTES'] = 'You must enter a correct response options (minimum 2, maximum is %s)';
+$lang['NEW_POLL_DAYS'] = 'The time of the poll (%s days from the moment of creation theme) already ended';
+$lang['NEW_POLL_U_NOSEL'] = 'You have not selected that vote';
+$lang['NEW_POLL_U_CHANGE'] = 'Edit poll';
+$lang['NEW_POLL_U_EDIT'] = 'Change the poll (the old results will be deleted)';
+$lang['NEW_POLL_U_VOTED'] = 'All voted';
+$lang['NEW_POLL_U_START'] = 'Enable poll';
+$lang['NEW_POLL_U_END'] = 'Finish poll';
+$lang['NEW_POLL_M_TITLE'] = 'Title of poll';
+$lang['NEW_POLL_M_VOTES'] = 'Options';
+$lang['NEW_POLL_M_EXPLAIN'] = 'Each row corresponds to one answer (max';
+
+$lang['OLD_BROWSER'] = 'You are using an outdated browser. The website will not display correctly.';
+$lang['GO_BACK'] = 'Go back';
+
+$lang['UPLOAD_ERROR_COMMON'] = 'File upload error';
+$lang['UPLOAD_ERROR_SIZE'] = 'The uploaded file exceeds the maximum size of %s';
+$lang['UPLOAD_ERROR_FORMAT'] = 'Invalid file type of image';
+$lang['UPLOAD_ERROR_DIMENSIONS'] = 'Image dimensions exceed the maximum allowable %sx%s px';
+$lang['UPLOAD_ERROR_NOT_IMAGE'] = 'The uploaded file is not an image';
+$lang['UPLOAD_ERROR_NOT_ALLOWED'] = 'Extension %s for downloads is not allowed';
+$lang['UPLOAD_ERRORS'] = array(
+	UPLOAD_ERR_INI_SIZE   => 'you have exceeded the maximum file size for the server',
+	UPLOAD_ERR_FORM_SIZE  => 'you have exceeded the maximum file upload size',
+	UPLOAD_ERR_PARTIAL    => 'the file was partially downloaded',
+	UPLOAD_ERR_NO_FILE    => 'file was not uploaded',
+	UPLOAD_ERR_NO_TMP_DIR => 'temporary directory not found',
+	UPLOAD_ERR_CANT_WRITE => 'write error',
+	UPLOAD_ERR_EXTENSION  => 'upload stopped by extension',
+);

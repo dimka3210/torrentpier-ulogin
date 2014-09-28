@@ -207,7 +207,7 @@ ajax.callback.gen_passkey = function(data){
 		<div id="avatar-img" class="mrg_4 med">
 			{AVATAR_IMG}
 			<!-- IF IS_ADMIN || PROFILE_USER -->
-			<p id="avatar-adm" class="med mrg_4">[ <a href="#" onclick="if (window.confirm('Удалить аватар?')){ ajax.avatar('delete', {PROFILE_USER_ID}); } return false;" class="adm">Удалить аватар</a> ]</p>
+			<p id="avatar-adm" class="med mrg_4">[ <a href="#" onclick="if (window.confirm('{L_AVATAR_DELETE}?')){ ajax.avatar('delete', {PROFILE_USER_ID}); } return false;" class="adm">{L_AVATAR_DELETE}</a> ]</p>
 			<!-- ENDIF -->
 		</div>
 		<p class="small mrg_4">
@@ -487,9 +487,7 @@ ajax.callback.gen_passkey = function(data){
 			</tr>
 		</table>
 		<!--/user_details-->
-
 	<!-- IF IS_AM --><span id="ip_list"></span><!-- ENDIF -->
-
 	</td>
 </tr>
 <!-- IF SIGNATURE -->
@@ -499,13 +497,6 @@ ajax.callback.gen_passkey = function(data){
 	</td>
 </tr>
 <!-- ENDIF -->
-
-<!-- BEGIN switch_report_user -->
-<tr>
-	<td class="catBottom" align="center" colspan="2"><a href="{U_REPORT_USER}" class="gen">{L_REPORT_USER}</a></td>
-</tr>
-<!-- END switch_report_user -->
-
 </table>
 <!--/user_profile-->
 
