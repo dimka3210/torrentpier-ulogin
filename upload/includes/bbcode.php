@@ -2,6 +2,8 @@
 
 if (!defined('BB_ROOT')) die(basename(__FILE__));
 
+define('BB_CODE_ROWS', 'bb_code_rows');
+
 $datastore->enqueue(array(
 	'smile_replacements',
 ));
@@ -970,4 +972,83 @@ function get_parsed_post ($postrow, $mode = 'full', $return_chars = 600)
 function update_post_html ($postrow)
 {
 	DB()->query("DELETE FROM ". BB_POSTS_HTML ." WHERE post_id = ". (int) $postrow['post_id'] ." LIMIT 1");
+}
+
+/**
+ * Получаем все bb-code из базы
+ * @return array
+ */
+function get_code_rows()
+{
+	if ($codes = CACHE('bb_cache')->get(BB_CODE_ROWS)) {
+		return $codes;
+	}
+
+	$sql = "SELECT * FROM " . BB_CODE;
+	$codes = DB()->fetch_rowset($sql);
+
+	if (!$codes) {
+		return array();
+	}
+
+	CACHE('bb_cache')->set(BB_CODE_ROWS, $codes);
+	return $codes;
+}
+
+/**
+ * Добавляем новый код в базу.
+ * Если всё хорошо, то вернём null, иначе сообщение о ошибке.
+ * @param array $data
+ * @return null|string
+ */
+function add_new_bb_code($data) {
+	global $lang, $userdata;
+
+	if (empty($data['code']) || empty($data['reg_exp']) || empty($data['out_html'])) {
+		return $lang['FIELDS_EMPTY'];
+	}
+
+	if ($regexp_error = invalid_regex($data['reg_exp'])) {
+		return $regexp_error;
+	}
+
+	if (DB()->fetch_row("SELECT 1 FROM " . BB_CODE . " WHERE code='{$data['code']}'")) {
+		return 'Этот код уже используется';
+	}
+
+	$data['reg_exp'] = DB()->escape($data['reg_exp']);
+	$data['out_html'] = DB()->escape($data['out_html']);
+
+	$columns = 'code, reg_exp, out_html, description, user_level, min_posts, is_enabled, case_sensitivity, created_by, created_date, modify_by, modify_date';
+	$values = "'{$data['code']}', '{$data['reg_exp']}', '{$data['out_html']}', '{$data['description']}', '{$data['user_level']}', '{$data['min_posts']}', '{$data['is_enabled']}', '{$data['case_sensitivity']}', " . $userdata['user_id'] . ", " . TIMENOW . ", " . $userdata['user_id'] . ", " . TIMENOW;
+
+	$sql = "INSERT INTO " . BB_CODE . " ({$columns}) VALUES({$values})";
+	DB()->sql_query($sql);
+	CACHE('bb_cache')->rm(BB_CODE_ROWS);
+
+	return null;
+}
+
+/**
+ * @see http://stackoverflow.com/questions/4440626/how-can-i-validate-regex
+ * @param $regex
+ * @return string
+ */
+function invalid_regex($regex)
+{
+	if(preg_match($regex, null) !== false)
+	{
+		return '';
+	}
+
+	$errors = array(
+		PREG_NO_ERROR               => 'Code 0 : No errors',
+		PREG_INTERNAL_ERROR         => 'Code 1 : There was an internal PCRE error',
+		PREG_BACKTRACK_LIMIT_ERROR  => 'Code 2 : Backtrack limit was exhausted',
+		PREG_RECURSION_LIMIT_ERROR  => 'Code 3 : Recursion limit was exhausted',
+		PREG_BAD_UTF8_ERROR         => 'Code 4 : The offset didn\'t correspond to the begin of a valid UTF-8 code point',
+		PREG_BAD_UTF8_OFFSET_ERROR  => 'Code 5 : Malformed UTF-8 data',
+	);
+
+	return $errors[preg_last_error()];
 }

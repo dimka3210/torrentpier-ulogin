@@ -1598,6 +1598,7 @@ $lang['CREATE_NEW'] = 'Создать';
 $lang['ADD_NEW'] = 'Добавить';
 $lang['CRON'] = 'Планировщик задач (cron)';
 $lang['REBUILD_SEARCH_INDEX'] = 'Перечесть индексы поиска';
+$lang['CONFIGURE_BBCODE'] = 'Настройка bb-code';
 $lang['FORUM_CONFIG'] = 'Настройки форумов';
 $lang['TRACKER_CONFIG'] = 'Настройки трекера';
 $lang['RELEASE_TEMPLATES'] = 'Шаблоны для релизов';

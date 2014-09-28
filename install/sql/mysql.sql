@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `bb_bt_users`;
 DROP TABLE IF EXISTS `bb_bt_user_settings`;
 DROP TABLE IF EXISTS `bb_captcha`;
 DROP TABLE IF EXISTS `bb_categories`;
+DROP TABLE IF EXISTS `bb_code`;
 DROP TABLE IF EXISTS `bb_config`;
 DROP TABLE IF EXISTS `bb_cron`;
 DROP TABLE IF EXISTS `bb_disallow`;
@@ -1298,3 +1299,23 @@ CREATE TABLE IF NOT EXISTS `buf_topic_view` (
   `topic_views` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`topic_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `bb_code` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`code` VARCHAR(128) NOT NULL COLLATE 'utf8_unicode_ci',
+	`reg_exp` VARCHAR(1024) NOT NULL COLLATE 'utf8_unicode_ci',
+	`out_html` TEXT NOT NULL COLLATE 'utf8_unicode_ci',
+	`description` TINYTEXT NOT NULL COLLATE 'utf8_unicode_ci',
+	`user_level` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0',
+	`min_posts` INT(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '0 - disabled',
+	`is_enabled` TINYINT(3) UNSIGNED NOT NULL DEFAULT '1',
+	`case_sensitivity` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0',
+	`created_by` INT(11) UNSIGNED NOT NULL COMMENT 'Who created',
+	`created_date` INT(11) UNSIGNED NOT NULL DEFAULT '0',
+	`modify_by` INT(11) UNSIGNED NOT NULL,
+	`modify_date` INT(11) UNSIGNED NOT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_unicode_ci'
+ENGINE=InnoDB;

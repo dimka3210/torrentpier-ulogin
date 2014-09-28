@@ -106,6 +106,10 @@ class DBS
 
 $DBS = new DBS($bb_cfg);
 
+/**
+ * @param string $db_alias
+ * @return sql_db
+ */
 function DB ($db_alias = 'db1')
 {
 	global $DBS;
@@ -129,9 +133,9 @@ if (!function_exists('sqlite_escape_string'))
 
 class CACHES
 {
-	var $cfg = array();   // конфиг
-	var $obj = array();   // кеш-объекты
-	var $ref = array();   // ссылки на $obj (имя_кеша => кеш_объект)
+	private $cfg = array();   // конфиг
+	private $obj = array();   // кеш-объекты
+	private $ref = array();   // ссылки на $obj (имя_кеша => кеш_объект)
 
 	function CACHES ($cfg)
 	{
@@ -240,10 +244,22 @@ class CACHES
 	{
 		return "CREATE TABLE {$cfg['table_name']} ( {$cfg['columns']} )";
 	}
+
+	/**
+	 * @return array
+	 */
+	public function get_obj()
+	{
+		return $this->obj;
+	}
 }
 
 $CACHES = new CACHES($bb_cfg);
 
+/**
+ * @param string $cache_name
+ * @return cache_memcache
+ */
 function CACHE ($cache_name)
 {
 	global $CACHES;

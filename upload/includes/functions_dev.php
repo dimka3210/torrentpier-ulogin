@@ -13,7 +13,7 @@ function get_sql_log ()
 		$log .= !empty($db_obj) ? get_sql_log_html($db_obj, "$srv_name [MySQL]") : '';
 	}
 
-	foreach ($CACHES->obj as $cache_name => $cache_obj)
+	foreach ($CACHES->get_obj() as $cache_name => $cache_obj)
 	{
 		if (!empty($cache_obj->db))
 		{
