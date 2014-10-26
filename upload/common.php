@@ -17,7 +17,7 @@ if (!defined('IN_FORUM') && !defined('IN_TRACKER')) define('IN_FORUM', true);
 header('X-Frame-Options: SAMEORIGIN');
 
 // Get initial config
-require(BB_ROOT .'config.php');
+require(BB_ROOT .'library/config.php');
 
 // Include core
 spl_autoload_register(function ($className) {
