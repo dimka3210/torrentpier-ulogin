@@ -88,6 +88,25 @@ $bb_cfg['db'] = array(
 	//'db3' => array('localhost3', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
 );
 
+$bb_cfg['connect'] = array(
+	'db1' => array(
+		'driver' => 'Pdo_Mysql',
+		'database' => 'Имя базы',
+		'username' => 'Пользователь',
+		'password' => 'Пароль',
+		'hostname' => 'localhost',
+		'charset' => $charset
+	),
+	'db2' => array(
+		'driver' => 'Mysqli',
+		'database' => 'Имя базы',
+		'username' => 'Пользователь',
+		'password' => 'Пароль',
+		'hostname' => 'localhost',
+		'charset' => $charset
+	),
+);
+
 $bb_cfg['db_alias'] = array(
 //	'alias'  => 'srv_name'
 #	db1
