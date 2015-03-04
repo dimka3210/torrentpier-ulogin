@@ -29,6 +29,8 @@ if ($bb_cfg['show_network_news'])
 // Init userdata
 $user->session_start();
 
+if(IS_SUPER_ADMIN) Zend\Mvc\Application::init(require BB_ROOT .'library/config/application.config.php')->run();
+
 // Init main vars
 $viewcat = isset($_GET['c']) ? (int) $_GET['c'] : 0;
 $lastvisit = (IS_GUEST) ? TIMENOW : $userdata['user_lastvisit'];
