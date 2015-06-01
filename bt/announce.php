@@ -142,9 +142,14 @@ $peer_hash = md5(
 );
 
 // Get cached peer info from previous announce (last peer info)
-$lp_info = CACHE('tr_cache')->get(PEER_HASH_PREFIX . $peer_hash);
-
-if (DBG_LOG) dbg_log(' ', '$lp_info-get_from-CACHE-'. ($lp_info ? 'hit' : 'miss'));
+if (!$lp_info = CACHE('tr_cache')->get(PEER_HASH_PREFIX . $peer_hash))
+{
+	$lp_info = DB()->fetch_row("SELECT * FROM ". BB_BT_TRACKER ." WHERE peer_hash = '$peer_hash' LIMIT 1");
+	
+	if (DBG_LOG) dbg_log(' ', '$lp_info-get_from-DB-'. ($lp_info ? 'hit' : 'miss'));
+	
+	if (DBG_LOG) dbg_log(' ', '$lp_info-get_from-CACHE-'. ($lp_info ? 'hit' : 'miss'));
+}
 
 // Drop fast announce
 if ($lp_info && (!isset($event) || $event !== 'stopped'))
@@ -197,16 +202,6 @@ if ($stopped)
 {
 	CACHE('tr_cache')->rm(PEER_HASH_PREFIX . $peer_hash);
 	if (DBG_LOG) dbg_log(' ', 'stopped');
-}
-
-// Get last peer info from DB
-if (!CACHE('tr_cache')->used && !$lp_info)
-{
-	$lp_info = DB()->fetch_row("
-		SELECT * FROM ". BB_BT_TRACKER ." WHERE peer_hash = '$peer_hash' LIMIT 1
-	");
-
-	if (DBG_LOG) dbg_log(' ', '$lp_info-get_from-DB-'. ($lp_info ? 'hit' : 'miss'));
 }
 
 if ($lp_info)
@@ -335,19 +330,22 @@ $speed_up = $speed_down = 0;
 
 if ($lp_info && $lp_info['update_time'] < TIMENOW)
 {
-	if ($uploaded > $lp_info['uploaded'])
+	if ($uploaded > $lp_info['up_add_user'])
 	{
-		$speed_up = ceil(($uploaded - $lp_info['uploaded']) / (TIMENOW - $lp_info['update_time']));
+		$speed_up = ceil(($uploaded - $lp_info['up_add_user']) / (TIMENOW - $lp_info['update_time']));
 	}
-	if ($downloaded > $lp_info['downloaded'])
+	if ($downloaded > $lp_info['down_add_user'])
 	{
-		$speed_down = ceil(($downloaded - $lp_info['downloaded']) / (TIMENOW - $lp_info['update_time']));
+		$speed_down = ceil(($downloaded - $lp_info['down_add_user']) / (TIMENOW - $lp_info['update_time']));
 	}
 }
 
 // Up/Down addition
-$up_add = ($lp_info && $uploaded > $lp_info['uploaded']) ? $uploaded - $lp_info['uploaded'] : 0;
-$down_add = ($lp_info && $downloaded > $lp_info['downloaded']) ? $downloaded - $lp_info['downloaded'] : 0;
+$up_add = ($lp_info && $uploaded > $lp_info['up_add_user']) ? $uploaded - $lp_info['up_add_user'] : 0;
+$down_add = ($lp_info && $downloaded > $lp_info['down_add_user']) ? $downloaded - $lp_info['down_add_user'] : 0;
+
+$up_add_user = ($lp_info) ? $lp_info['up_add_user'] : 0;
+$down_add_user = ($lp_info) ? $lp_info['down_add_user'] : 0;
 
 // Gold / silver releases
 if ($tr_cfg['gold_silver_enabled'] && $down_add)
@@ -383,8 +381,11 @@ if ($lp_info)
 	$sql .= ($downloaded != $lp_info['downloaded']) ? ", downloaded = $downloaded" : '';
 	$sql .= ", remain = $left";
 
-	$sql .= ($up_add) ? ", up_add = up_add + $up_add" : '';
-	$sql .= ($down_add) ? ", down_add = down_add + $down_add" : '';
+	$sql .= ($uploaded > $lp_info['uploaded']) ? ", up_add = CAST(up_add AS SIGNED) + CAST(uploaded AS SIGNED) - CAST(up_add_user AS SIGNED)" : '';
+	$sql .= ($downloaded > $lp_info['downloaded']) ? ", down_add = CAST(down_add AS SIGNED) + CAST(downloaded AS SIGNED) - CAST(down_add_user AS SIGNED)" : '';
+
+	$sql .= ($uploaded > $lp_info['uploaded']) ? ", up_add_user = CAST(up_add_user AS SIGNED) + CAST(up_add AS SIGNED)" : '';
+	$sql .= ($downloaded > $lp_info['downloaded']) ? ", down_add_user = CAST(down_add_user AS SIGNED) + CAST(down_add AS SIGNED)" : '';
 
 	$sql .= ", speed_up = $speed_up";
 	$sql .= ", speed_down = $speed_down";
@@ -425,6 +426,8 @@ $lp_info = array(
 	'uploaded'    => (float) $uploaded,
 	'user_id'     => (int)   $user_id,
 	'tor_type'    => (int)   $tor_type,
+	'up_add_user' => (float) $up_add_user,
+   'down_add_user'=> (float) $down_add_user,
 );
 
 $lp_info_cached = CACHE('tr_cache')->set(PEER_HASH_PREFIX . $peer_hash, $lp_info, PEER_HASH_EXPIRE);
