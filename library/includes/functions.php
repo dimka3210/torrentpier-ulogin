@@ -2825,3 +2825,40 @@ function bb_captcha ($mode, $callback = '')
 	}
 	return false;
 }
+
+/**
+ * Заполнить POST из данных uLogin
+ */
+function fill_post_from_ulogin() {
+	if (!isset($_POST['token'])) {
+		return;
+	}
+
+	$data = file_get_contents('http://ulogin.ru/token.php?token=' . $_POST['token'] . '&host=' . $_SERVER['HTTP_HOST']);
+	$user = json_decode($data, true);
+	if (!$user) {
+		return;
+	}
+
+	$rand_password = generate_password();
+
+	$_POST['username'] = $user['nickname'];
+	$_POST['user_email'] = $user['email'];
+	$_POST['new_pass'] = $rand_password;
+	$_POST['cfm_pass'] = $rand_password;
+	$_POST['submit'] = 'submit';
+}
+
+/**
+ * Сгенерировать случайны пароль
+ * @param int $length
+ * @return string
+ */
+function generate_password($length = 10) {
+	$symbols = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9));
+	$result = '';
+	for($i = 0; $i < $length; $i++) {
+		$result .= $symbols[rand(0, count($symbols) - 1)];
+	}
+	return $result;
+}

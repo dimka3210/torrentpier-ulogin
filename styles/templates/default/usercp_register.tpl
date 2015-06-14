@@ -60,6 +60,15 @@ document.write('<input type="hidden" name="user_timezone" value="'+tz+'" />');
 <tr>
 	<td class="row2 small tCenter" colspan="2">{L_ITEMS_REQUIRED}</td>
 </tr>
+<!-- IF $bb_cfg['ulogin']['enabled'] -->
+<tr>
+	<td class="row2 small tCenter" colspan="2">
+		<script src="//ulogin.ru/js/ulogin.js"></script>
+		<div id="uLogin"
+			 data-ulogin="display=small;fields={$bb_cfg['ulogin']['fields']};providers={$bb_cfg['ulogin']['providers']};hidden={$bb_cfg['ulogin']['hidden']};redirect_uri={ULOGIN_REDIRECT_URL}"></div>
+	</td>
+</tr>
+<!-- ENDIF -->
 <tr>
 	<td class="prof-title">{L_USERNAME}: *</td>
 	<td><!-- IF CAN_EDIT_USERNAME --><input id="username" onBlur="ajax.exec({ action: 'user_register', mode: 'check_name', username: $('#username').val()}); return false;" type="text" name="username" size="35" maxlength="25" value="{USERNAME}" /><!-- ELSE --><b>{USERNAME}</b><!-- ENDIF -->

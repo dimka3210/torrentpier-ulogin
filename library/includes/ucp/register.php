@@ -4,6 +4,8 @@ if (!defined('BB_ROOT')) die(basename(__FILE__));
 
 array_deep($_POST, 'trim');
 
+fill_post_from_ulogin();
+
 set_die_append_msg();
 
 if (IS_ADMIN)
@@ -774,6 +776,7 @@ $template->assign_vars(array(
 
 	'PR_USER_ID'         => $pr_data['user_id'],
 	'U_RESET_AUTOLOGIN'  => LOGIN_URL . "?logout=1&amp;reset_autologin=1&amp;sid={$userdata['session_id']}",
+	'ULOGIN_REDIRECT_URL' => urlencode('//'.$_SERVER['HTTP_HOST'].'/profile.php?mode=register'),
 ));
 
 print_page('usercp_register.tpl');

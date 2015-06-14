@@ -620,7 +620,7 @@ $bb_cfg['group_avatars'] = array(
 // Captcha
 // Get a Google reCAPTCHA API Key: https://www.google.com/recaptcha/admin
 $bb_cfg['captcha'] = array(
-	'disabled'   => false,
+	'disabled'   => true,
 	'public_key' => '', // your public key
 	'secret_key' => '', // your secret key
 	'theme'      => 'light', // light or dark
@@ -636,6 +636,13 @@ $bb_cfg['atom'] = array(
 $bb_cfg['nofollow'] = array(
 	'disabled'    => false,
 	'allowed_url' => array($domain_name),             // 'allowed.site', 'www.allowed.site'
+);
+
+$bb_cfg['ulogin'] = array(
+	'enabled' => true,
+	'fields' => 'email,nickname',
+	'providers' => 'vkontakte,odnoklassniki,mailru,facebook',
+	'hidden' => 'other'
 );
 
 // Local config
